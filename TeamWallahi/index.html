@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Portfolio - Carl, Kent, and Prince</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./input.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    gridTemplateColumns: {
+                        'auto': 'repeat(auto-fit, minmax(280px, 1fr))'
+                    },
+                    fontFamily: {
+                        Outfit: ["Outfit", "sans-serif"],
+                        Ovo: ["Ovo", "serif"]
+                    },
+                    animation: {
+                        spin_fast: 'spin 2s linear infinite',
+                        'scroll': 'scroll 10s linear infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    colors: {
+                        lightHover: '#fcf4ff',
+                        darkHover: '#2a004a',
+                        darkTheme: '#0a0a0a'
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 30px -10px rgba(0,0,0,0.1)',
+                        'black': '4px 4px 0 #000',
+                        'white': '4px 4px 0 #fff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-effect { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .slider-dot.active { background-color: #000; width: 1.5rem; }
+        .dark .slider-dot.active { background-color: #fff; }
+    </style>
+</head>
+
+<body class="font-Outfit leading-8 dark:bg-darkTheme dark:text-white transition-colors duration-300">
+    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden opacity-50">
+        <img src="./assets/header-bg-color.png" alt="" class="w-full" />
+    </div>
+
+    <nav id="navbar" class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 transition-all duration-300">
+        <div class="text-xl font-bold tracking-tighter font-Ovo">CKP.</div>
+
+        <ul id="navLink"
+            class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-10 py-2.5 bg-white/70 backdrop-blur-md shadow-soft font-Ovo dark:border dark:border-white/10 dark:bg-black/20">
+            <li><a class='hover:text-gray-500 dark:hover:text-gray-300 transition-colors' href="#top">Home</a></li>
+            <li><a class='hover:text-gray-500 dark:hover:text-gray-300 transition-colors' href="#about">About</a></li>
+            <li><a class='hover:text-gray-500 dark:hover:text-gray-300 transition-colors' href="#work">Work</a></li>
+        </ul>
+
+        <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
+                <img src="./assets/moon_icon.png" alt="" class="w-5 dark:hidden" />
+                <img src="./assets/sun_icon.png" alt="" class="w-5 hidden dark:block" />
+            </button>
+
+            <button class="block md:hidden p-2" onclick="openMenu()">
+                <img src="./assets/menu-black.png" alt="" class="w-6 dark:hidden" />
+                <img src="./assets/menu-white.png" alt="" class="w-6 hidden dark:block" />
+            </button>
+        </div>
+
+        
+        <ul id="mobileMenu"
+            class="flex md:hidden flex-col gap-6 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-white shadow-2xl transition-all duration-500 font-Ovo dark:bg-darkTheme dark:text-white">
+            <div class="absolute right-6 top-6" onclick="closeMenu()">
+                <img src="./assets/close-black.png" alt="" class="w-5 cursor-pointer dark:hidden" />
+                <img src="./assets/close-white.png" alt="" class="w-5 cursor-pointer hidden dark:block" />
+            </div>
+            <li><a href="#top" onclick="closeMenu()" class="text-2xl">Home</a></li>
+            <li><a href="#about" onclick="closeMenu()" class="text-2xl">About</a></li>
+            <li><a href="#work" onclick="closeMenu()" class="text-2xl">Work</a></li>
+        </ul>
+    </nav>
+
+    
+    <div id="top" class="w-11/12 max-w-4xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-6 animate-fade-in">
+        <h3 class="text-lg md:text-xl font-Ovo text-gray-600 dark:text-gray-400">
+            Carl, Kent, and Prince
+        </h3>
+        <h1 class="text-4xl sm:text-7xl lg:text-8xl font-Ovo tracking-tight leading-tight">
+            Digital Experiences <br> <span class="text-gray-400">from Philippines.</span>
+        </h1>
+        <p class="max-w-xl mx-auto font-Ovo text-gray-600 dark:text-gray-400 text-lg">
+            A collaborative developer team with 2 years of experience in VB.NET, MySQL, and modern web technologies.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center gap-4 mt-8">
+            <a href="#work"
+                class="px-10 py-4 rounded-full bg-black text-white dark:bg-white dark:text-black font-medium hover:scale-105 transition-transform">
+                View Our Work
+            </a>
+        </div>
+    </div>
+
+   
+    <div id="about" class="w-full px-[8%] py-24 scroll-mt-20">
+        <div class="flex flex-col items-center mb-16">
+            <h4 class="text-gray-500 uppercase tracking-widest text-sm mb-4">Introduction</h4>
+            <h2 class="text-5xl md:text-6xl font-Ovo">About us</h2>
+        </div>
+        
+        <div class="flex w-full flex-col lg:flex-row items-start gap-16">
+            <div class="w-full lg:w-1/3">
+                <div class="rounded-3xl overflow-hidden bg-gray-50 dark:bg-white/5 p-10 border border-gray-100 dark:border-white/10">
+                    <div class="relative overflow-hidden">
+                        <div class="flex animate-scroll whitespace-nowrap">
+                            <div class="flex gap-12 items-center px-6">
+                                <img src="./assets/vscode.png" class="w-10 h-10 hover:scale-110 transition-all" alt="VS Code">
+                                <img src="./assets/Mysql.png" class="w-10 h-10 hover:scale-110 transition-all" alt="MySQL">
+                                <img src="./assets/css.png" class="w-10 h-10 hover:scale-110 transition-all" alt="CSS">
+                                <img src="./assets/html.png" class="w-10 h-10 hover:scale-110 transition-all" alt="HTML">
+                                <img src="./assets/vb.png" class="w-10 h-10 hover:scale-110 transition-all" alt="VB.NET">
+                                <img src="./assets/git.png" class="w-10 h-10 hover:scale-110 transition-all" alt="Git">
+                                <img src="./assets/figma.png" class="w-10 h-10 hover:scale-110 transition-all" alt="Figma">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center mt-8 font-Ovo text-sm text-gray-500">Our Core Tech Stack</p>
+                </div>
+            </div>
+            
+            <div class="flex-1">
+                <p class="text-xl md:text-2xl font-Ovo text-gray-700 dark:text-gray-300 leading-relaxed mb-12">
+                   We are a collaborative software development team with 2 years of experience building production-ready desktop and web-based systems. Our core expertise is in VB.NET and MySQL, with additional experience in web technologies and systems integration. We focus on developing scalable solutions such as POS and inventory systems, AI-integrated applications, and data-driven platforms that balance solid architecture with intuitive user experience.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-8 rounded-2xl border border-gray-100 dark:border-white/10 hover:border-black dark:hover:border-white transition-colors group">
+                        <img src="./assets/code-icon.png" alt="" class="w-6 mb-6 dark:hidden group-hover:scale-110 transition-transform">
+                        <img src="./assets/code-icon-dark.png" alt="" class="w-6 mb-6 hidden dark:block group-hover:scale-110 transition-transform">
+                        <h3 class="text-lg font-semibold mb-2">Expertise</h3>
+                        <p class="text-sm text-gray-500">VB.NET, MySQL, HTML, CSS, JS, React, Tailwind, Figma, Git</p>
+                    </div>
+                    <div class="p-8 rounded-2xl border border-gray-100 dark:border-white/10 hover:border-black dark:hover:border-white transition-colors group">
+                        <img src="./assets/edu-icon.png" alt="" class="w-6 mb-6 dark:hidden group-hover:scale-110 transition-transform">
+                        <img src="./assets/edu-icon-dark.png" alt="" class="w-6 mb-6 hidden dark:block group-hover:scale-110 transition-transform">
+                        <h3 class="text-lg font-semibold mb-2">Education</h3>
+                        <p class="text-sm text-gray-500">B.S in Computer Science</p>
+                    </div>
+                    <div class="p-8 rounded-2xl border border-gray-100 dark:border-white/10 hover:border-black dark:hover:border-white transition-colors group">
+                        <img src="./assets/project-icon.png" alt="" class="w-6 mb-6 dark:hidden group-hover:scale-110 transition-transform">
+                        <img src="./assets/project-icon-dark.png" alt="" class="w-6 mb-6 hidden dark:block group-hover:scale-110 transition-transform">
+                        <h3 class="text-lg font-semibold mb-2">Experience</h3>
+                        <p class="text-sm text-gray-500">2+ Years, Built more than 3 Projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <div id="work" class="w-full px-[8%] py-24 scroll-mt-20 bg-gray-50 dark:bg-white/[0.02]">
+        <div class="flex flex-col items-center mb-16">
+            <h4 class="text-gray-500 uppercase tracking-widest text-sm mb-4">Portfolio</h4>
+            <h2 class="text-5xl md:text-6xl font-Ovo">Recent Works</h2>
+        </div>
+
+        <div class="grid grid-cols-auto gap-8">
+            
+            <div onclick="openProject('work-1')" class="group cursor-pointer">
+                <div class="aspect-[4/3] overflow-hidden rounded-3xl mb-6 bg-gray-200">
+                    <img src="./assets/SYS.png" alt="POS System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="text-2xl font-Ovo mb-1">POS and Inventory SYS</h3>
+                <p class="text-gray-500 text-sm uppercase tracking-wider">Desktop-based Application</p>
+            </div>
+            
+            <div onclick="openProject('work-2')" class="group cursor-pointer">
+                <div class="aspect-[4/3] overflow-hidden rounded-3xl mb-6 bg-gray-200">
+                    <img src="./assets/Brew.png" alt="BrewTrack" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="text-2xl font-Ovo mb-1">BrewTrack</h3>
+                <p class="text-gray-500 text-sm uppercase tracking-wider">POS</p>
+            </div>
+            
+            <div onclick="openProject('work-3')" class="group cursor-pointer">
+                <div class="aspect-[4/3] overflow-hidden rounded-3xl mb-6 bg-gray-200">
+                    <img src="./assets/IS1.png" alt="RAPHA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="text-2xl font-Ovo mb-1">RAPHA Diagnostics</h3>
+                <p class="text-gray-500 text-sm uppercase tracking-wider">Information System</p>
+            </div>
+            
+            <div onclick="openProject('work-4')" class="group cursor-pointer">
+                <div class="aspect-[4/3] overflow-hidden rounded-3xl mb-6 bg-gray-200">
+                    <img src="./assets/quiz1.png" alt="Quizzer App" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <h3 class="text-2xl font-Ovo mb-1">Quizzer</h3>
+                <p class="text-gray-500 text-sm uppercase tracking-wider">Desktop Application</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="projectModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-md">
+        <div class="bg-white dark:bg-darkTheme w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-[2rem] shadow-2xl no-scrollbar">
+            <div class="sticky top-0 bg-white/80 dark:bg-darkTheme/80 backdrop-blur-md p-6 border-b dark:border-white/10 flex justify-between items-center z-10">
+                <div>
+                    <p id="modalCategory" class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Category</p>
+                    <h2 id="modalTitle" class="text-2xl md:text-3xl font-Ovo">Project Title</h2>
+                </div>
+                <button onclick="closeModal()" class="p-3 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition-colors">
+                    <img src="./assets/close-black.png" alt="Close" class="w-6 dark:hidden">
+                    <img src="./assets/close-white.png" alt="Close" class="w-6 hidden dark:block">
+                </button>
+            </div>
+            
+            <div class="p-6 md:p-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <div class="lg:col-span-7 space-y-8">
+                        
+                        <div class="relative group rounded-2xl overflow-hidden bg-gray-100 dark:bg-white/5 aspect-video">
+                            <div id="sliderContainer" class="flex transition-transform duration-500 ease-out h-full">
+                                
+                            </div>
+                            
+                            
+                            <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/20 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/40">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                            </button>
+                            <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/20 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/40">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                            </button>
+                            
+                            
+                            <div id="sliderDots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                                
+                            </div>
+                        </div>
+
+                        
+                        <div id="modalVideo" class="w-full rounded-2xl overflow-hidden shadow-lg bg-black">
+                            
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5">
+                        <div class="sticky top-32">
+                            <h3 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">Project Overview</h3>
+                            <p id="modalDescription" class="text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed font-Ovo">
+                                Description goes here...
+                            </p>
+                            
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Technologies</h4>
+                            <div id="modalTech" class="flex flex-wrap gap-2 mb-10">
+                                
+                            </div>
+                            
+                            <div class="pt-8 border-t dark:border-white/10">
+                                <p class="text-sm text-gray-500 italic">Scroll to see more details and video showcase.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-12 border-t dark:border-white/10 mx-[8%] flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500">
+        <p>© 2026 Team Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
